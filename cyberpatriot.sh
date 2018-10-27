@@ -30,7 +30,7 @@ sudo sed -i '/^PASS_WARN_AGE/ c\PASS_WARN_AGE   7' /etc/login.defs
 sed -i '1 s/^/password requisite pam_cracklib.so retry=3 minlen=8 difok=3 reject_username minclass=3 maxrepeat=2 dcredit=1 ucredit=1 lcredit=1 ocredit=1\n/' /etc/pam.d/common-password
 
 # Media Files
-for suffix in mp3 wav wma aac mp4 mov avi gif jpg png bmp img exe msi bat
+for suffix in mp3 wav wma aac mp4 mov avi gif
 do
   sudo find /home -name *.$suffix -type f -delete
 done
