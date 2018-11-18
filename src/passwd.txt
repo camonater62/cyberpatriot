@@ -37,4 +37,3 @@ pulse:x:117:124:PulseAudio daemon,,,:/var/run/pulse:/bin/false
 rtkit:x:118:126:RealtimeKit,,,:/proc:/bin/false
 saned:x:119:127::/var/lib/saned:/bin/false
 usbmux:x:120:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false
-cwest:x:1000:1000:Cameron West,,,:/home/cwest:/bin/bash
