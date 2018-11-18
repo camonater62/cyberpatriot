@@ -49,6 +49,23 @@ cat /etc/passwd > src/users.txt
 gnome-terminal --tab -e "/bin/bash -c 'comm -23 "src/packages.txt" "src/16.04.txt"; comm -23 "src/users.txt" "src/passwd.txt" ; exec /bin/bash -i'"
 read -n 1 -s -r -p "\nPress any key to continue"
 
+# Manage SSH
+gnome-terminal --tab -e "/bin/bash -c 'nano /etc/ssh/sshd_config ; exec /bin/bash -i'"
+read -n 1 -s -r -p "\nPress any key to continue"
+
+# Manage Apache
+gnome-terminal --tab -e "/bin/bash -c 'nano /etc/apache2/apache2.conf; nano /etc/apache2/ports.conf ; exec /bin/bash -i'"
+read -n 1 -s -r -p "\nPress any key to continue"
+service apache2 restart
+
+# Check Ports
+gnome-terminal --tab -e "/bin/bash -c 'netstat -atp ; exec /bin/bash -i'"
+read -n 1 -s -r -p "\nPress any key to continue"
+
+# Manage Sudoers
+gnome-terminal --tab -e "/bin/bash -c 'visudo ; nanoe /etc/sudoers.d/* ; exec /bin/bash -i'"
+read -n 1 -s -r -p "\nPress any key to continue"
+
 # Update Software
 apt -y update
 apt -y upgrade
