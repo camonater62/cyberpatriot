@@ -1,5 +1,5 @@
-# cyberpatriot
-### Bash script for CyberPatriot
+# CyberPatriot XI (2018-19)
+#### A simple bash script for CyberPatriot
 
 ## Use
 ```bash
