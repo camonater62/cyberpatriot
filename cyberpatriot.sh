@@ -46,7 +46,7 @@ apt -y purge medusa*
 # Show Non-Default Packages In Seperate Window
 dpkg --get-selections | grep -v deinstall > src/new.txt
 gnome-terminal --tab -e "/bin/bash -c 'comm -23 "src/new.txt" "src/16.04.txt" ; exec /bin/bash -i'"
-read -n 1 -s -r -p "Press any key to continue"
+read -n 1 -s -r -p "\nPress any key to continue"
 
 # Update Software
 apt -y update
