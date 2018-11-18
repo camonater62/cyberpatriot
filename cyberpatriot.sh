@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 # Check if script is being run as admin
 if [[ $EUID -ne 0 ]]; then
@@ -7,14 +7,10 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # Open the user account settings
-unity-control-center user-accounts
+unity-control-center user-accounts &
 
 # Manage sources
 cat src/sources.list > /etc/apt/sources.list
-
-# Update Software
-apt -y update
-apt -y upgrade
 
 # Lightdm
 cat src/lightdm.conf > /etc/lightdm/lightdm.conf
@@ -46,3 +42,12 @@ apt -y purge netcat*
 apt -y purge zenmap*
 apt -y purge nmap*
 apt -y purge medusa*
+
+# Show Non-Default Packages In Seperate Window
+dpkg --get-selections | grep -v deinstall > src/new.txt
+gnome-terminal --tab -e "/bin/bash -c 'comm -23 "src/new.txt" "src/16.04.txt" ; exec /bin/bash -i'"
+read -n 1 -s -r -p "Press any key to continue"
+
+# Update Software
+apt -y update
+apt -y upgrade
