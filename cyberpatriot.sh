@@ -44,8 +44,9 @@ apt -y purge nmap*
 apt -y purge medusa*
 
 # Show Non-Default Packages In Seperate Window
-dpkg --get-selections | grep -v deinstall > src/new.txt
-gnome-terminal --tab -e "/bin/bash -c 'comm -23 "src/new.txt" "src/16.04.txt" ; exec /bin/bash -i'"
+dpkg --get-selections | grep -v deinstall > src/packages.txt
+cat /etc/passwd > src/users.txt
+gnome-terminal --tab -e "/bin/bash -c 'comm -23 "src/packages.txt" "src/16.04.txt"; comm -23 "src/users.txt" "src/passwd.txt" ; exec /bin/bash -i'"
 read -n 1 -s -r -p "\nPress any key to continue"
 
 # Update Software
